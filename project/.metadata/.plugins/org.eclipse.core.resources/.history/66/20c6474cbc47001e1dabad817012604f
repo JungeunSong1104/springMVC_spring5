@@ -1,0 +1,29 @@
+package ch02_pjt_01;
+
+public class MyCalculator {
+//	public void calAdd(int fNum, int sNum, CalAdd calAdd) {
+//		int value = calAdd.doOperation(fNum, sNum);
+//		System.out.println("result : "+ value);
+//	}
+//	
+//	public void calSub(int fNum, int sNum, CalSub calSub) {
+//		int value = calSub.doOperation(fNum, sNum);
+//		System.out.println("result : "+ value);
+//	}
+//	
+//	public void calMul(int fNum, int sNum, CalMul calMul) {
+//		int value = calMul.doOperation(fNum, sNum);
+//		System.out.println("result : "+ value);
+//	}
+//	
+//	public void calDiv(int fNum, int sNum, CalDiv calDiv) {
+//		int value = calDiv.doOperation(fNum, sNum);
+//		System.out.println("result : "+ value);
+//	}
+	
+	외부에서 주입 받는걸 하나의 클래스가 아니라 아예 인터페이스로 주입받음
+	public void calAdd(int fNum, int sNum, Icalculator calculator) {
+		int value = calAdd.doOperation(fNum, sNum);
+		System.out.println("result : "+ value);
+	}
+}

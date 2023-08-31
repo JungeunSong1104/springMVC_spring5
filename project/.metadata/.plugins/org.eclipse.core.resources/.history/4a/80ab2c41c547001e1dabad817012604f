@@ -1,0 +1,28 @@
+package ch02_pjt_01;
+
+import java.util.Scanner;
+
+public class CalAssembler {
+	MyCalculator calculator;
+	CalAdd calAdd;
+	CalSub calSub;
+	CalMul calMul;
+	CalDiv calDiv;
+	
+	public CalAssembler() {
+		calculator = new MyCalculator();
+		calAdd = new CalAdd();
+		calSub = new CalSub();
+		calMul = new CalMul();
+		calDiv = new CalDiv();
+		
+		assemble();
+	}
+	
+	public void assemble() {
+		calculator.calculate(num1, num2, calAdd);
+		calculator.calculate(num1, num2, calSub);
+		calculator.calculate(num1, num2, calMul);
+		calculator.calculate(num1, num2, calDiv);
+	}
+}

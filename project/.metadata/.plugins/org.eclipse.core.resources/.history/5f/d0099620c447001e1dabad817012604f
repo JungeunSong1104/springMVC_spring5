@@ -1,0 +1,15 @@
+package ch02_pjt_01;
+import java.util.Scanner;
+
+public class MainClass {
+
+	public static void main(String[] args) {
+		System.out.println("숫자입력");
+		Scanner s = new Scanner(System.in);
+		double inputNum = s.nextInt();
+		new CalAssembler();
+		
+		
+		
+	}
+}

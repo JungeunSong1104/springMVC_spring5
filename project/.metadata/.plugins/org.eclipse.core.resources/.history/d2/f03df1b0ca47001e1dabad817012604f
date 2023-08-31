@@ -1,0 +1,25 @@
+package ch02_pjt_01;
+
+public class CalcAssembler {
+	ICalculator calculator;
+	
+	public static ICalculator assemble(char operator) {
+		return switch (operator) {
+			case '+' :
+				operator = new Add();
+				break
+			case '-' :
+				operator = new Subtract();
+				operator = new 
+			case '*' :
+				operator = new Multiply();
+				operator = new 
+			case '/' : 
+				operator = new Divide();
+				operator = new 
+			case '%' : 
+				operator = new Modulo();
+				operator = new 
+		};
+	}
+}

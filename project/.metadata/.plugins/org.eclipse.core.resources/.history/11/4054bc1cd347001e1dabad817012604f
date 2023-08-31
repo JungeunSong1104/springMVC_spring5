@@ -1,0 +1,22 @@
+package ch03_pjt_02;
+
+import org.springframework.context.support.GenericXmlApplicationContext;
+
+public class MainClass {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		//TransportationWalk transportaionWalk = new TransportationWalk();
+		//TransportationWalk 객체생성
+		//transportaionWalk.move();//
+		//TransportationWalk객체가 가진 move라는 메서드 실행해줌
+		
+		GenericXmlApplicationContext ctx = new GenericXmlApplicationContext("classpath:applicationContext.xml");
+		
+		TransportationWalk transportationWalk = 
+				ctx.getBean("tWalk", TransportationWalk.class);
+		transportationWalk.move();
+
+	}
+
+}

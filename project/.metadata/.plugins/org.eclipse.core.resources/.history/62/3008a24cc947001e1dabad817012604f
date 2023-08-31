@@ -1,0 +1,15 @@
+package ch02_pjt_01;
+
+public class MainClass {
+
+	public static void main(String[] args) {
+		Calc calc = new Calc(10, 5);
+		
+		/* 클래스를 직접 넘겨주지 않고 연산자를 받자 */
+		calc.showCalcResult('+');
+		calc.showCalcResult('-');
+		calc.showCalcResult('*');
+		calc.showCalcResult('/');
+		calc.showCalcResult('%');
+	}
+}

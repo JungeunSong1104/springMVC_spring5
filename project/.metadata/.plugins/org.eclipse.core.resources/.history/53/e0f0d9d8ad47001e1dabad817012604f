@@ -1,0 +1,10 @@
+package ch02_pjt_01;
+
+public class CalAdd implements ICalculator{//implements를 이용해서 ICalculator 인터페이스 구현중
+//CalAdd(모든 Cal클래스들) doOperation을 구현해주고있음
+//같은 이름 메서드를 다르게구현중?
+	@Override
+	public int doOperation(int firstNum, int secondNum) {
+		return firstNum + secondNum;
+	}
+}

@@ -1,0 +1,12 @@
+package ch02_pjt_01;
+
+public class MainClass {
+
+	public static void main(String[] args) {
+		MyCalculator calculator = new MyCalculator();
+		calculator.calAdd(10,5);//메개변수 두개씩 전달중 하짐나 수정한 마칼클은 매개변수 세개받고 있으니까 수정해줘야함
+		calculator.calSub(10,5);
+		calculator.calMul(10,5);
+		calculator.calDiv(10,5);
+	}
+}

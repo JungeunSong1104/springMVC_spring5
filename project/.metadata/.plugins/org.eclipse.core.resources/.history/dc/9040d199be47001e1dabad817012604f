@@ -1,0 +1,15 @@
+package ch02_pjt_01;
+
+public class CalAssembler {
+	MyCalculator calculator;
+	CalAdd calAdd;
+	CalSub calSub;
+	CalMul calMul;
+	CalDiv calDiv;
+	
+	public CalAssembler() {
+		calculator = new MyCalculator();
+	}
+	
+	
+}

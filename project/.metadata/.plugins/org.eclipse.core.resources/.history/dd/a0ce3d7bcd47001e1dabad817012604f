@@ -1,0 +1,14 @@
+package ch03_pjt_01;
+
+public class MainClass {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		TransportationWalk transportaionWalk = new TransportationWalk();
+		//TransportationWalk 클래스생성
+		transportaionWalk.move();
+		//TransportationWalk객체가 가진 move라는 메서드 실행해줌
+
+	}
+
+}

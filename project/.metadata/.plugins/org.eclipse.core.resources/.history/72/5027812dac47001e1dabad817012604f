@@ -1,0 +1,10 @@
+package ch02_pjt_01;
+
+public class MainClass {
+
+	public static void main(String[] args) {
+		MyCalculator calculator = new MyCalculator();//클래스 사용할 때 항상 생정자로 호출해서 객체 생성해줘야함 
+		
+	}
+
+}
