@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="kr" class="ch03_pjt_03_exercise2.Korea" />
+	<bean id="en" class="ch03_pjt_03_exercise2.English" />
+	<bean id="gp" class="ch03_pjt_03_exercise2.GreetingPrinter" />
+	<bean id="as" class="ch03_pjt_03_exercise2.Assembler">
+		<constructor-arg ref="kr" />
+		<constructor-arg ref="en" />
+		<constructor-arg ref="gp" />
+	</bean>
+</beans>

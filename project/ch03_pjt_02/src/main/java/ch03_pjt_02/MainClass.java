@@ -8,7 +8,7 @@ public class MainClass {
 		// TODO Auto-generated method stub
 		//TransportationWalk transportaionWalk = new TransportationWalk();
 		//TransportationWalk 객체생성
-		//transportaionWalk.move();//
+		//transportaionWalk.move ();//
 		//TransportationWalk객체가 가진 move라는 메서드 실행해줌
 		
 		GenericXmlApplicationContext ctx = new GenericXmlApplicationContext("classpath:applicationContext.xml");
@@ -18,7 +18,6 @@ public class MainClass {
 		transportationWalk.move();
 		
 		ctx.close();
-
 	}
 
 }
