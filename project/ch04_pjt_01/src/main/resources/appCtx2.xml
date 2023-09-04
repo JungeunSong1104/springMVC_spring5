@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 이 파일에선 데이터베이스만 관리할거임 -->
+	<bean id="dev_DBConnectionInfoDev"
+		class="ch04_pjt_01.ems.member.DBConnectionInfo">
+		<property name="url" value="000.000.000.000" />
+		<property name="userId" value="admin" />
+		<property name="userPw" value="0000" />
+	</bean>
+	
+	<!-- 실제서비스용 빈 -->
+	<bean id="real_DBConnectionInfo"
+		class="ch04_pjt_01.ems.member.DBConnectionInfo">
+		<property name="url" value="111.111.111.111" />
+		<property name="userId" value="master" />
+		<property name="userPw" value="1111" />
+		<!-- 일반적인 값을 저장할때는 빈과빈사이에 프로퍼티안에 밸류로 저장하면됨? 
+		프로퍼티 안의 값을 사용하려면 클래스에? 반드시 게터세터가 있어야함 
+		게터세터없으면 빈을 생성못함? -->
+	</bean>
+</beans>
