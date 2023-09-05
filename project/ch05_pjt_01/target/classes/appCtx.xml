@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"> -->
+
+<!-- http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd 
+	두줄 추가 -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context.xsd"
+	xmlns:context="http://www.springframework.org/schema/context">
+
+	<context:annotation-config /><!-- 자동주입의 가장 중요한 부분 추가해줌 -->
+	<!-- 현재는 registerService와 searchService에서 contactDAO를 필요로하는데 이걸 써주면 자동으로 
+		contactDAO를 주입해줌 -->
+
+
+	<bean id="initSampleData"
+		class="ch05_pjt_01.contact.utils.InitSampleData">
+		<property name="names">
+			<array>
+				<value>김아수라방구라</value>
+				<value>김또네왕초</value>
+				<value>송죽전프린세스</value>
+			</array>
+		</property>
+		<property name="phoneNumbers">
+			<array>
+				<value>010-0000-1111</value>
+				<value>010-0000-2222</value>
+				<value>010-0000-3333</value>
+			</array>
+		</property>
+	</bean>
+
+	<bean id="contactDAO" class="ch05_pjt_01.contact.dao.ContactDAO" />
+	<!--<qualifier value="usedDAO" /> 여기서 value는 qualifier를 지정할때 qualifier의 
+		이름이라고 생각하면됨 -->
+
+	<bean id="contactDAO2" class="ch05_pjt_01.contact.dao.ContactDAO" />
+	<bean id="contactDAO3" class="ch05_pjt_01.contact.dao.ContactDAO" />
+	<!-- 빈을 추가해서 빈을 두개이상으로 만듦 => 에러발생 -->
+
+	<bean id="registerService"
+		class="ch05_pjt_01.contact.service.ContactRegisterService" />
+	<!-- <constructor-arg ref="contactDAO" /> : ref 속성값에 contactDAO객체를 갖고있음? -->
+
+	<bean id="searchService"
+		class="ch05_pjt_01.contact.service.ContactSearchService" />
+	<!-- <constructor-arg ref="contactDAO" /> -->
+
+	<bean id="fistBean1" class="ch05_pjt_01.contact.FirstBean">
+		<qualifier value="usedBean" />
+	</bean>
+	<bean id="fistBean2" class="ch05_pjt_01.contact.FirstBean" />
+	<bean id="fistBean3" class="ch05_pjt_01.contact.FirstBean" />
+
+	<bean id="scondBean" class="ch05_pjt_01.contact.SecondBean" />
+	<bean id="thirdBean" class="ch05_pjt_01.contact.ThirdBean" />
+	<bean id="fourthBean1" class="ch05_pjt_01.contact.FourthBean">
+		<qualifier value="usedBean" />
+	</bean>
+	<bean id="fourthBean2" class="ch05_pjt_01.contact.FourthBean" />
+
+	<bean id="autowiredEx" class="ch05_pjt_01.contact.AutoWiredEx" />
+	<bean id="fourthBean3" class="ch05_pjt_01.contact.FourthBean" />
+</beans>

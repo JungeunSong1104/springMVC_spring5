@@ -10,7 +10,8 @@ public class Member {
 	private String mEmail;
 	private String rDate;
 	private String uDate;
-	public Member(String mNum, String mId, String mPw, String mTel, String mEmail, String rdate, String udate) {
+	
+	public Member(String mNum, String mId, String mPw, String mTel, String mEmail, String rDate, String uDate) {
 		super();
 		this.mNum = mNum;
 		this.mId = mId;

@@ -1,7 +1,159 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans
-http://www.springframework.org/schema/beans/spring-beans.xsd">
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="initSampleData"
+		class="ch04_pjt_02_quiz.ems.utils.InitSampleData">
+		<property name="mNums">
+			<array>
+				<value>M0001</value>
+				<value>M0002</value>
+				<value>M0003</value>
+				<value>M0004</value>
+				<value>M0005</value>
+			</array>
+		</property>
+		<property name="mIds">
+			<array>
+				<value>ID01</value>
+				<value>ID02</value>
+				<value>ID03</value>
+				<value>ID04</value>
+				<value>ID05</value>
+			</array>
+		</property>
+		<property name="mTels">
+			<array>
+				<value>010-1111-1111</value>
+				<value>010-2222-2222</value>
+				<value>010-3333-3333</value>
+				<value>010-4444-4444</value>
+				<value>010-5555-5555</value>
+			</array>
+		</property>
+		<property name="mEmails">
+			<array>
+				<value>email1@email.com</value>
+				<value>email2@email.com</value>
+				<value>email3@email.com</value>
+				<value>email4@email.com</value>
+				<value>email5@email.com</value>
+			</array>
+		</property>
+		<property name="rDates">
+			<array>
+				<value>2023-01-01</value>
+				<value>2023-02-01</value>
+				<value>2023-03-01</value>
+				<value>2023-04-01</value>
+				<value>2023-05-01</value>
+			</array>
+		</property>
+		<property name="uDates">
+			<array>
+				<value>2023-01-18</value>
+				<value>2023-02-18</value>
+				<value>2023-03-18</value>
+				<value>2023-04-18</value>
+				<value>2023-05-18</value>
+			</array>
+		</property>
+	</bean>
+	<bean id="MemberDAO"
+		class="ch04_pjt_02_quiz.ems.member.dao.MemberDAO"/>
+		
+	<bean id="newMemberRegisterService"
+		class="ch04_pjt_02_quiz.ems.member.service.NewMemberRegisterService">
+		<constructor-arg ref="studentDAO" />
+		</bean>
+	<bean id="studentModifyService"
+		class="ch04_pjt_01.ems.member.service.StudentModifyService">
+		<constructor-arg ref="studentDAO" />
+		</bean>
+	<bean id="studentDeleteService"
+		class="ch04_pjt_01.ems.member.service.StudentDeleteService">
+		<constructor-arg ref="studentDAO" />
+		</bean>
+	<bean id="studentSelectService"
+		class="ch04_pjt_01.ems.member.service.StudentSelectService">
+		<constructor-arg ref="studentDAO" />
+		</bean>
+	<bean id="studentAllSelectService"
+		class="ch04_pjt_01.ems.member.service.StudentAllSelectService">
+		<constructor-arg ref="studentDAO" />
+		</bean>
+	<bean id="printStudentInformationService"
+		class="ch04_pjt_01.ems.member.service.PrintStudentInformationService">
+		<constructor-arg ref="studentAllSelectService" />
+		</bean>
+	<bean id="dev_DBConnectionInfoDev"
+		class="ch04_pjt_01.ems.member.DBConnectionInfo">
+		<property name="url" value="000.000.000.000" />
+		<property name="userId" value="admin" />
+		<property name="userPw" value="0000" />
+		</bean>
+	<bean id="real_DBConnectionInfo"
+		class="ch04_pjt_01.ems.member.DBConnectionInfo">
+		<property name="url" value="111.111.111.111" />
+		<property name="userId" value="master" />
+		<property name="userPw" value="1111" />
+		</bean>
+	<bean id="EMSInformationService"
+		class="ch04_pjt_01.ems.member.service.EMSInformationService">
+		<property name="info"
+			value="Education Management System program was devaloped in 2022." />
+		<property name="copyRight"
+			value="COPYRIGHT(C) 2022 EMS CO., LTD. ALL RIGHT RESERVED. CONTACT MASTER FOR MORE INFORMATION." />
+		<property name="ver" value="The version is 1.0" />
+		<property name="sYear" value="2022" />
+		<property name="sMonth" value="3" />
+		<property name="sDay" value="1" />
+		<property name="eYear" value="2022" />
+		<property name="eMonth" value="4" />
+		<property name="eDay" value="30" />
+		<property name="developers">
+			<list>
+				<value>Cheney.</value>
+				<value>Eloy.</value>
+				<value>Jasper.</value>
+				<value>Dillon.</value>
+				<value>Kian.</value>
+			</list>
+		</property>
+		<property name="administrators">
+			<map>
+				<entry>
+					<key>
+						<value>Cheney</value>
+					</key>
+					<value>cheney@springPjt.org</value>
+				</entry>
+				<entry>
+					<key>
+						<value>Jasper</value>
+					</key>
+					<value>jasper@springPjt.org</value>
+				</entry>
+			</map>
+		</property>
+		<property name="dbInfos">
+			<map>
+				<entry>
+					<key>
+						<value>dev</value>
+					</key>
+					<ref bean="dev_DBConnectionInfoDev" />
+				</entry>
+				<entry>
+					<key>
+						<value>real</value>
+					</key>
+					<ref bean="real_DBConnectionInfo" />
+				</entry>
+			</map>
+		</property>
+		</bean>
 </beans>

@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans
-http://www.springframework.org/schema/beans/spring-beans.xsd">
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<!-- initsampledata의 초기값을 지정해줌 그래서 샘플데이터자바파일에서 초기값이 필요없음 => 주석처리해줌 -->
 	<bean id="initSampleData"
 		class="ch04_pjt_01.ems.utils.InitSampleData">
 		<property name="sNums">
@@ -28,11 +27,11 @@ http://www.springframework.org/schema/beans/spring-beans.xsd">
 		</property>
 		<property name="sPws">
 			<array>
-				<value>96539</value>
-				<value>64875</value>
-				<value>15284</value>
-				<value>48765</value>
-				<value>28661</value>
+				<value>p0001</value>
+				<value>p0002</value>
+				<value>p0003</value>
+				<value>p0004</value>
+				<value>p0005</value>
 			</array>
 		</property>
 		<property name="sNames">
@@ -55,11 +54,11 @@ http://www.springframework.org/schema/beans/spring-beans.xsd">
 		</property>
 		<property name="sGenders">
 			<array>
-				<value>m</value>
-				<value>w</value>
-				<value>w</value>
-				<value>m</value>
-				<value>m</value>
+				<value>M</value>
+				<value>W</value>
+				<value>W</value>
+				<value>M</value>
+				<value>M</value>
 			</array>
 		</property>
 		<property name="sMajors">
@@ -67,81 +66,56 @@ http://www.springframework.org/schema/beans/spring-beans.xsd">
 				<value>English</value>
 				<value>Korean</value>
 				<value>French</value>
-				<value>philosophy</value>
-				<value>history</value>
+				<value>Philosophy</value>
+				<value>History</value>
 			</array>
 		</property>
 	</bean>
 	<bean id="studentDAO"
-		class="ch04_pjt_01.ems.member.dao.StudentDAO" />
-
+		class="ch04_pjt_01.ems.member.dao.StudentDAO"/>
+		
 	<bean id="studentRegisterService"
 		class="ch04_pjt_01.ems.member.service.StudentRegisterService">
 		<constructor-arg ref="studentDAO" />
-		<!-- constructor : 생성자, arg : 매개변수 constructor-arg: 매개변수가 있는 생성자를 어쩌구 하는 
-			구문 ref(레퍼런스변수) : 일반적인 int char 같은 직접적으로 메모리에 저장되는 값이 아니라 객체같은 경우 실제 변수에는 
-			객체 주소가 저장됨 클래스를 객체화해서 객체변수를 만들때는 실제객체가 들어가는게 아니고 객체가 만들어진 공간의 주고 들어감 주소가들어간 
-			공간을 참조변수라고하고 레퍼런스변수라고부름 이 코드에서는 매개변수가 있는 생성자이기 떄문에 construtor-arg 라고해주고 studentdAO라는 
-			객체가 전달되기 때문에 studentdAO라고 적어줌 ref에 전달되는 객체는 빈으로? 빈에서? 선언되어있어야함 -->
-	</bean>
-
-
-	
-
+		</bean>
 	<bean id="studentModifyService"
 		class="ch04_pjt_01.ems.member.service.StudentModifyService">
 		<constructor-arg ref="studentDAO" />
-	</bean>
-
+		</bean>
 	<bean id="studentDeleteService"
 		class="ch04_pjt_01.ems.member.service.StudentDeleteService">
 		<constructor-arg ref="studentDAO" />
-	</bean>
-
+		</bean>
 	<bean id="studentSelectService"
 		class="ch04_pjt_01.ems.member.service.StudentSelectService">
 		<constructor-arg ref="studentDAO" />
-	</bean>
-
+		</bean>
 	<bean id="studentAllSelectService"
 		class="ch04_pjt_01.ems.member.service.StudentAllSelectService">
 		<constructor-arg ref="studentDAO" />
-	</bean>
-	
+		</bean>
 	<bean id="printStudentInformationService"
 		class="ch04_pjt_01.ems.member.service.PrintStudentInformationService">
 		<constructor-arg ref="studentAllSelectService" />
-	</bean>
-
-	<!-- 학생클래스하나당 여러개의 인스턴스가 나올 수 있는것처럼 빈도 하나의 클래스에서 성격에 따라 빈을 여러개 생성할수있음 -->
-	<!-- 개발/테스트용 빈 -->
+		</bean>
 	<bean id="dev_DBConnectionInfoDev"
 		class="ch04_pjt_01.ems.member.DBConnectionInfo">
 		<property name="url" value="000.000.000.000" />
 		<property name="userId" value="admin" />
 		<property name="userPw" value="0000" />
-	</bean>
-
-	<!-- 실제서비스용 빈 -->
+		</bean>
 	<bean id="real_DBConnectionInfo"
 		class="ch04_pjt_01.ems.member.DBConnectionInfo">
 		<property name="url" value="111.111.111.111" />
 		<property name="userId" value="master" />
 		<property name="userPw" value="1111" />
-		<!-- 일반적인 값을 저장할때는 빈과빈사이에 프로퍼티안에 밸류로 저장하면됨? 프로퍼티 안의 값을 사용하려면 클래스에? 반드시 
-			게터세터가 있어야함 게터세터없으면 빈을 생성못함? -->
-	</bean>
-
-	<!-- EMSInformationService: 필드가 12개 -->
+		</bean>
 	<bean id="EMSInformationService"
 		class="ch04_pjt_01.ems.member.service.EMSInformationService">
-		<property name="info">
-			<value>Education Management syste 어쩌구~</value>
-		</property>
-		<!-- name은 속성값으로 들어가고 value는 또다른 태그값으로 들어갈수있음 -->
-
+		<property name="info"
+			value="Education Management System program was devaloped in 2022." />
 		<property name="copyRight"
-			value="COPYRIGHT(C) 2022 EMS CO., LTD. ALL RIGHT RESERVED. CONTACT MASTER FRO MORE INFORMATION" />
+			value="COPYRIGHT(C) 2022 EMS CO., LTD. ALL RIGHT RESERVED. CONTACT MASTER FOR MORE INFORMATION." />
 		<property name="ver" value="The version is 1.0" />
 		<property name="sYear" value="2022" />
 		<property name="sMonth" value="3" />
@@ -149,7 +123,6 @@ http://www.springframework.org/schema/beans/spring-beans.xsd">
 		<property name="eYear" value="2022" />
 		<property name="eMonth" value="4" />
 		<property name="eDay" value="30" />
-
 		<property name="developers">
 			<list>
 				<value>Cheney.</value>
@@ -157,13 +130,11 @@ http://www.springframework.org/schema/beans/spring-beans.xsd">
 				<value>Jasper.</value>
 				<value>Dillon.</value>
 				<value>Kian.</value>
-				<!-- 리스트는 밸류의 집합체이기 때문에 트리식으로밖에 표현할수없음 -->
 			</list>
 		</property>
-
 		<property name="administrators">
 			<map>
-				<entry><!-- entry : 각가의 아이템들을 구분해줌? -->
+				<entry>
 					<key>
 						<value>Cheney</value>
 					</key>
@@ -177,7 +148,6 @@ http://www.springframework.org/schema/beans/spring-beans.xsd">
 				</entry>
 			</map>
 		</property>
-
 		<property name="dbInfos">
 			<map>
 				<entry>
@@ -188,11 +158,11 @@ http://www.springframework.org/schema/beans/spring-beans.xsd">
 				</entry>
 				<entry>
 					<key>
-						<value>real</value><!-- 키에 해당하는 값이 스트링이아니고 객체기 때문에 ref 값으로 대체하고있음 -->
+						<value>real</value>
 					</key>
-					<ref bean="real_DBConnectionInfoDev" />
+					<ref bean="real_DBConnectionInfo" />
 				</entry>
 			</map>
 		</property>
-	</bean>
+		</bean>
 </beans>

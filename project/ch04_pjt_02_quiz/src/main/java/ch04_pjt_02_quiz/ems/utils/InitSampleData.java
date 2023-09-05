@@ -2,53 +2,53 @@ package ch04_pjt_02_quiz.ems.utils;
 
 public class InitSampleData {
 	private String[] mNums;
-	private String[] userIds;
-	private String[] userPws;
-	private String[] userNames;
-	private int[] userAges;
-	private char[] userGnders;
-	private String[] userMajors;
-	
+	private String[] mIds;
+	private String[] mPws;
+	private String[] mTels;
+	private String[] mEmails;
+	private String[] rDates;
+	private String[] uDates;
 	public String[] getmNums() {
 		return mNums;
 	}
 	public void setmNums(String[] mNums) {
 		this.mNums = mNums;
 	}
-	public String[] getUserIds() {
-		return userIds;
+	public String[] getmIds() {
+		return mIds;
 	}
-	public void setUserIds(String[] userIds) {
-		this.userIds = userIds;
+	public void setmIds(String[] mIds) {
+		this.mIds = mIds;
 	}
-	public String[] getUserPws() {
-		return userPws;
+	public String[] getmPws() {
+		return mPws;
 	}
-	public void setUserPws(String[] userPws) {
-		this.userPws = userPws;
+	public void setmPws(String[] mPws) {
+		this.mPws = mPws;
 	}
-	public String[] getUserNames() {
-		return userNames;
+	public String[] getmTels() {
+		return mTels;
 	}
-	public void setUserNames(String[] userNames) {
-		this.userNames = userNames;
+	public void setmTels(String[] mTels) {
+		this.mTels = mTels;
 	}
-	public int[] getUserAges() {
-		return userAges;
+	public String[] getmEmails() {
+		return mEmails;
 	}
-	public void setUserAges(int[] userAges) {
-		this.userAges = userAges;
+	public void setmEmails(String[] mEmails) {
+		this.mEmails = mEmails;
 	}
-	public char[] getUserGnders() {
-		return userGnders;
+	public String[] getrDates() {
+		return rDates;
 	}
-	public void setUserGnders(char[] userGnders) {
-		this.userGnders = userGnders;
+	public void setrDates(String[] rDates) {
+		this.rDates = rDates;
 	}
-	public String[] getUserMajors() {
-		return userMajors;
+	public String[] getuDates() {
+		return uDates;
 	}
-	public void setUserMajors(String[] userMajors) {
-		this.userMajors = userMajors;
+	public void setuDates(String[] uDates) {
+		this.uDates = uDates;
 	}
+	
 }
