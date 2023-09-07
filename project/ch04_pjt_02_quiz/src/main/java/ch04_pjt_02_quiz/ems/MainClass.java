@@ -7,7 +7,7 @@ import ch04_pjt_02_quiz.ems.member.service.MemberDeleteService;
 import ch04_pjt_02_quiz.ems.member.service.MemberModifyService;
 import ch04_pjt_02_quiz.ems.member.service.NewMemberRegisterService;
 import ch04_pjt_02_quiz.ems.member.service.PrintMemberInformationService;
-import ch04_pjt_02_quiz.ems.member.service.SelectedMemberInquire;
+import ch04_pjt_02_quiz.ems.member.service.SelectedMemberService;
 import ch04_pjt_02_quiz.ems.utils.InitSampleData;
 
 
@@ -41,7 +41,7 @@ public class MainClass {
 
 		printMemberInformationService.printMembersInfo();
 
-		SelectedMemberInquire selectedMemberInquire = ctx.getBean("selectedMemberInquire", SelectedMemberInquire.class);
+		SelectedMemberService selectedMemberInquire = ctx.getBean("selectedMemberInquire", SelectedMemberService.class);
 		Member selectedMember = selectedMemberInquire.select("hbs006");
 
 		System.out.println("STUDENT START ---------------------");

@@ -25,6 +25,15 @@
 				<value>ID05</value>
 			</array>
 		</property>
+		<property name="mPws">
+			<array>
+				<value>password1</value>
+				<value>password2</value>
+				<value>password3</value>
+				<value>password4</value>
+				<value>password5</value>
+			</array>
+		</property>
 		<property name="mTels">
 			<array>
 				<value>010-1111-1111</value>
@@ -62,47 +71,47 @@
 			</array>
 		</property>
 	</bean>
-	<bean id="MemberDAO"
+	<bean id="memberDAO"
 		class="ch04_pjt_02_quiz.ems.member.dao.MemberDAO"/>
 		
 	<bean id="newMemberRegisterService"
 		class="ch04_pjt_02_quiz.ems.member.service.NewMemberRegisterService">
-		<constructor-arg ref="studentDAO" />
+		<constructor-arg ref="memberDAO" />
 		</bean>
-	<bean id="studentModifyService"
-		class="ch04_pjt_01.ems.member.service.StudentModifyService">
-		<constructor-arg ref="studentDAO" />
+	<bean id="memberModifyService"
+		class="h04_pjt_02_quiz.ems.member.service.MemberModifyService">
+		<constructor-arg ref="memberDAO" />
 		</bean>
-	<bean id="studentDeleteService"
-		class="ch04_pjt_01.ems.member.service.StudentDeleteService">
-		<constructor-arg ref="studentDAO" />
+	<bean id="memberDeleteService"
+		class="h04_pjt_02_quiz.ems.member.service.MemberDeleteService">
+		<constructor-arg ref="memberDAO" />
 		</bean>
-	<bean id="studentSelectService"
-		class="ch04_pjt_01.ems.member.service.StudentSelectService">
-		<constructor-arg ref="studentDAO" />
+	<bean id="selectedMemberService"
+		class="h04_pjt_02_quiz.ems.member.service.SelectedMemberService">
+		<constructor-arg ref="memberDAO" />
 		</bean>
-	<bean id="studentAllSelectService"
-		class="ch04_pjt_01.ems.member.service.StudentAllSelectService">
-		<constructor-arg ref="studentDAO" />
+	<bean id="allMemberSelectService"
+		class="h04_pjt_02_quiz.ems.member.service.AllMemberSelectService">
+		<constructor-arg ref="memberDAO" />
 		</bean>
-	<bean id="printStudentInformationService"
-		class="ch04_pjt_01.ems.member.service.PrintStudentInformationService">
-		<constructor-arg ref="studentAllSelectService" />
+	<bean id="printMemberInformationService"
+		class="h04_pjt_02_quiz.ems.member.service.PrintMemberInformationService">
+		<constructor-arg ref="allMemberSelectService" />
 		</bean>
 	<bean id="dev_DBConnectionInfoDev"
-		class="ch04_pjt_01.ems.member.DBConnectionInfo">
+		class="h04_pjt_02_quiz.ems.member.DBConnectionInfo">
 		<property name="url" value="000.000.000.000" />
 		<property name="userId" value="admin" />
 		<property name="userPw" value="0000" />
 		</bean>
 	<bean id="real_DBConnectionInfo"
-		class="ch04_pjt_01.ems.member.DBConnectionInfo">
+		class="h04_pjt_02_quiz.ems.member.DBConnectionInfo">
 		<property name="url" value="111.111.111.111" />
 		<property name="userId" value="master" />
 		<property name="userPw" value="1111" />
 		</bean>
 	<bean id="EMSInformationService"
-		class="ch04_pjt_01.ems.member.service.EMSInformationService">
+		class="h04_pjt_02_quiz.ems.member.service.EMSInformationService">
 		<property name="info"
 			value="Education Management System program was devaloped in 2022." />
 		<property name="copyRight"

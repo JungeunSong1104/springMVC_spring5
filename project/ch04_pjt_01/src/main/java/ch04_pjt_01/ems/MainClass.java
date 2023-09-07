@@ -71,13 +71,18 @@ public class MainClass {
 		StudentModifyService modifyService = ctx.getBean("studentModifyService", StudentModifyService.class);
 		modifyService.modify(new Student("hb006", "pig", "p0066", "mellisa", 27, 'w', "Computer"));
 
-		StudentDeleteService deleteService = ctx.getBean("studentDeleteService", StudentDeleteService.class);
-		printStudentInformationService.printStudentsInfo();
-
-		EMSInformationService emsInformationService = ctx.getBean("EMSInformationService", EMSInformationService.class);
-		emsInformationService.printEMSInformation();
-
-		ctx.close();
+		StudentDeleteService deleteService =
+		        ctx.getBean("studentDeleteService", StudentDeleteService.class);
+		    deleteService.delete("hbs005");
+		    //학생 리스트
+		    printStudentInformationService.printStudentsInfo();
+		    
+		    //시스템 정보
+		    EMSInformationService emsInformationService =
+		        ctx.getBean("EMSInformationService", EMSInformationService.class);
+		    emsInformationService.printEMSInformation();
+		    
+		    ctx.close();
 
 	}
 

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- <import resource="classpath:appCtx2.xml" />
+	<import resource="classpath:appCtx3.xml" />-->
+
+	<!-- initsampledata의 초기값을 지정해줌 
+	그래서 샘플데이터자바파일에서 초기값이 필요없음 => 주석처리해줌-->
+	<bean id="initSampleData"
+		class="ch04_pjt_01.ems.utils.InitSampleData">
+		<property name="sNums">
+			<array>
+				<value>hbs001</value>
+				<value>hbs002</value>
+				<value>hbs003</value>
+				<value>hbs004</value>
+				<value>hbs005</value>
+			</array>
+		</property>
+		<property name="sIds">
+			<array>
+				<value>rabbit</value>
+				<value>hippo</value>
+				<value>raccoon</value>
+				<value>elephant</value>
+				<value>lion</value>
+			</array>
+		</property>
+		<property name="sPws">
+			<array>
+				<value>96539</value>
+				<value>64875</value>
+				<value>15284</value>
+				<value>48765</value>
+				<value>28661</value>
+			</array>
+		</property>
+		<property name="sNames">
+			<array>
+				<value>agatha</value>
+				<value>barbara</value>
+				<value>chris</value>
+				<value>doris</value>
+				<value>elva</value>
+			</array>
+		</property>
+		<property name="sAges">
+			<array>
+				<value>19</value>
+				<value>22</value>
+				<value>20</value>
+				<value>27</value>
+				<value>19</value>
+			</array>
+		</property>
+		<property name="sGenders">
+			<array>
+				<value>m</value>
+				<value>w</value>
+				<value>w</value>
+				<value>m</value>
+				<value>m</value>
+			</array>
+		</property>
+		<property name="sMajors">
+			<array>
+				<value>English</value>
+				<value>Korean</value>
+				<value>French</value>
+				<value>philosophy</value>
+				<value>history</value>
+			</array>
+		</property>
+	</bean>
+	<bean id="studentDAO"
+		class="ch04_pjt_01.ems.member.dao.StudentDAO" />
+
+	<bean id="studentRegisterService"
+		class="ch04_pjt_01.ems.member.service.StudentRegisterService">
+		<constructor-arg ref="studentDAO" />
+		<!-- constructor : 생성자, arg : 매개변수
+		constructor-arg: 매개변수가 있는 생성자를 어쩌구 하는 구문
+		ref(레퍼런스변수) : 일반적인 int char 같은 직접적으로 메모리에 저장되는 값이 아니라 객체같은 경우 실제 변수에는 
+		객체 주소가 저장됨 클래스를 객체화해서 객체변수를 만들때는 실제객체가 들어가는게 아니고 객체가 만들어진 공간의 주고 들어감 주소가들어간 
+		공간을 참조변수라고하고 레퍼런스변수라고부름 이 코드에서는 매개변수가 있는 생성자이기 떄문에 construtor-arg 라고해주고 studentdAO라는 
+		객체가 전달되기 때문에 studentdAO라고 적어줌 ref에 전달되는 객체는 빈으로? 빈에서? 선언되어있어야함 -->
+	</bean>
+</beans>
